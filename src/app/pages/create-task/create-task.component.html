@@ -1,0 +1,36 @@
+<div class="container container__create-task">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="task-creation">
+    <tui-input formControlName="question" >
+      Напишите вопрос или тему
+      <input tuiTextfield />
+    </tui-input>
+    <!-- <tui-input formControlName="answer">
+      Напишите ответ
+      <input tuiTextfield />
+    </tui-input> -->
+    <tui-loader
+      [overlay]="true"
+      [showLoader]="!!(imgbbService.loading$ | async)"
+    >
+      <!-- <tui-editor
+        class="editor"
+        [formControl]="control"
+        [tools]="builtInTools"
+        [tuiValidator]="validator"
+      ></tui-editor> -->
+      <tui-editor
+      class="editor"
+      formControlName="answer"
+      [tools]="builtInTools"
+    ></tui-editor>
+    </tui-loader>
+
+    <!-- <tui-error
+    [formControl]="control"
+    [error]="[] | tuiFieldError | async"
+></tui-error> -->
+
+    <!-- <tui-editor-socket [content]="control.value || ''"></tui-editor-socket> -->
+    <button type="submit" tuiButton size="m" class="btn" >Готово</button>
+  </form>
+</div>
